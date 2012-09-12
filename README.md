@@ -3,14 +3,14 @@ ForzaPanino Meteor
 
 A simple meteor + backbone example application
 
-I wrote this application to take care of the launch orders 
+I wrote this application to take care of the food ordering 
 of me and my colleagues at PatavinaTech (www.patavinatech.com)
 
 A running example can be found at forzapanino.meteor.com
 
-Please not that this is a work in progress...
+Please note that this is a work in progress...
 
-If you like to give it a try please not that I'm working with the 
+If you like to give it a try you should use the
 git version of meteor, auth branch 
 
 
