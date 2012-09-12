@@ -1,0 +1,67 @@
+<template name="shops">
+  <div class="row">
+    <div class="span12" id="shops">
+      <h1> Manage Shops </h1>
+     <table class="table table-striped">
+        <tr>
+         <th> Name </th> 
+         <th> Phone </th> 
+         <th> Actions </th>
+        </tr> 
+        {{#each shops}}
+          <tr>
+            <td><a href="#/shops/{{{_id }}}"> {{name}}</a> </td>
+            <td> {{ phone }} </td>
+            <td > 
+              <a href="#/shops/{{{_id }}}" class="order btn btn-success">View Ingredients</a>
+              <a class="destroy btn btn-danger">Destroy</a> 
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <div id="alert" class="alert alert-error" style="display: none;"></div>
+      <div class="well">
+        <form id="new_shop">
+          <h5>Add a new Shop</h5>
+          <label> Name: </label>
+          <input type="text" id="shop_name"></input>
+          <label> Phone: </label>
+          <input type="text" id="shop_phone"></input>
+          <br>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="shop">
+    <h1> Manage Shop: 
+      {{#with shop}}
+        {{ name }} 
+      {{/with}}
+    </h1>
+    <h2> Shop Ingredients:</h1>
+    <table class="table table-striped">
+      <tr>
+       <th> Name </th>
+       <th> Actions </th>
+      </tr> 
+      {{#each ingredients}}
+        <tr>
+          <td>{{name}}</a> </td>
+          <td > <a class="destroy btn btn-danger">Destroy</a> </td>
+        </tr>
+      {{/each}}
+    </table>
+    <div id="alert" class="alert alert-error" style="display: none;"></div>
+    <form id="new_ingredient">
+      <h5>Add a new ingredient</h5>
+      <input type="text" id="new_ingredient_name"></input>
+      <button type="submit" class="btn btn-primary">New</button>
+    </form>
+</template>

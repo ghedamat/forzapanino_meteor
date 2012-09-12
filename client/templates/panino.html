@@ -1,0 +1,80 @@
+<template name="paninos_list">
+  <table class="table table-striped">
+    <tr>
+      <th>
+        User
+      </th>
+      <th>
+        Ingredients
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
+  {{#each todays}}
+    <tr>
+      {{> panino}}
+    </tr>
+  {{/each}}
+  </table>
+</template>
+
+<template name="paninos_list_with_shop">
+
+    <table class="table table-striped">
+    <tr>
+      <th>
+        Shop
+      </th>
+      <th>
+        User
+      </th>
+      <th>
+        Ingredients
+      </th>
+      <th>
+        Actions
+      </th>
+
+    </tr>
+  {{#each todays}}
+    <tr>
+      <td> {{ shop.name}} </td>
+      {{> panino}}
+    </tr>
+  {{/each}}
+  </table>
+</template>
+
+<template name="panino">
+  <td>
+    <a href="#user/{{{this.user._id}}}">{{ this.user.name }}</a>
+  </td>
+  <td>
+    {{ p_ingredients this }}
+  </td>
+  <td>
+    <a class="order btn btn-success">I want this</a>
+    <a class="destroy btn btn-danger">Destroy</a>
+  </td>
+</template>
+
+<template name="ingredients">
+
+  <form id="new_panino">
+    <div id="ingredients_alert" class="alert alert-error" style="display: none;"></div>
+    <div class="control-group">
+      <label class="control-label" for="inlineCheckboxes">
+        <h5>Choose your ingredients</h5></label>
+      <div class="controls">
+        {{#each ingredients}}
+          <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox1" value="{{_id}}"> {{name}}
+          </label>
+        {{/each}}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">New Panino</button>
+  </form>
+
+</template>

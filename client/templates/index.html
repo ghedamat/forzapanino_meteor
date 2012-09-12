@@ -1,0 +1,158 @@
+<template name="login">
+  {{#if currentUser}}
+    <li> <a href="#" id="logout">Logout</a> </li> <li> <a href="#user/{{{currentUser._id}}}">{{currentUser.name}} </a> </li>
+  {{else}}
+    <li> <a href="#" id="login">Login</a> </li>
+  {{/if}}
+</template>
+
+<template name="main">
+  {{{render page}}}
+</template>
+
+<template name="home">
+  <div class="row">
+    <div class="span12">
+    <div id="alert"></div>
+    </div>
+    <div class="span3">
+      <h2>Shops</h2>
+      <ul class="nav nav-tabs nav-stacked">
+        <li>
+          <a href="#">All Paninos</a>
+        </li>
+        {{#each shops}}
+          <li>
+            <a href="#/paninos/{{_id}}">
+              {{name}}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="span9">
+      <div class="row" id="shop_paninos">
+        {{#if shop}}
+          {{> shop_paninos}}
+        {{else}}
+          {{> today_resume }}
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+    </div>
+  </div>
+</template>
+
+<template name="today_resume">
+  <div class="span9">
+    <h2>Today's Paninos for all shops</h2>
+    <div class="#paninos_list">
+        {{> paninos_list_with_shop}}
+    </div>
+  </div>
+</template>
+
+<template name="shop_paninos">
+  <div class="span9">
+    <h2>Today's Paninos for shop:
+      {{#with shop}}
+        {{name}}
+      {{/with}}
+    </h2>
+    <div class="#paninos_list">
+      {{> paninos_list}}
+    </div>
+  </div>
+  <div class="span9">
+    <div class="well">
+      {{> ingredients}}
+    </div>
+  </div>
+</template>
+
+
+
+<head>
+  <title>forzapanino.meteor.com</title>
+</head>
+
+<body>
+   <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="#">Forzapanino</a>
+       <ul class="nav" id="navbar">
+          <li id="nav-home" class="active">
+            <a href="#">Home</a>
+          </li>
+          <li id="nav-users"><a href="#users">Users</a></li>
+          <li id="nav-admin"><a href="#shops">Shops</a></li>
+        </ul>
+       <div class="nav-collapse" id="main-menu">
+         <ul class="nav pull-right" id="main-menu-right">
+          {{> login}}
+         </ul>
+       </div>
+     </div>
+   </div>
+  </div>
+  <div class="container">
+    <div id="main">
+      {{> main}}
+    </div>
+  </div>
+</body>
+
+
+
+
+
+<template name="index">
+
+  <div class="row">
+    <div class="span12">
+      {{> users}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <div id="alert"></div>
+      <div class="#paninos_list">
+        {{> paninos_list}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <div class="well">
+        {{> ingredients}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="alert">
+  <div class="alert alert-block alert-error">
+    <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading">Warning!</h4>
+      {{ alertText }}
+  </div>
+</template>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<template name="user">
+  <div class="row">
+    <div class="span12">
+      <h1>Userpage of
+        {{#with user}}
+          {{name}}
+        {{/with}}
+        
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <div id="alert"></div>
+      <div class="#paninos_list">
+        {{> paninos_list}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="users">
+  <h2>Users list</h2>
+  <table class="table table-striped">
+    <tr>
+     <th> User Name </th> 
+    </tr>
+    {{#each users}}
+      <tr>
+        <td>
+          <a href="#users/{{{this._id}}}">{{ this.name }}</a>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+  </ul>
+</template>
+
+
+
