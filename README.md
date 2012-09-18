@@ -6,7 +6,7 @@ A simple meteor + backbone example application
 I wrote this application to take care of the food ordering 
 of me and my colleagues at PatavinaTech (www.patavinatech.com)
 
-A working example can be found at panino.meteor.com
+A working example can be found at http://panino.meteor.com
 
 Please note that this is a work in progress...
 
